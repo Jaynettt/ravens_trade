@@ -3,5 +3,5 @@ class Booking < ApplicationRecord
   belongs_to :user
 
   validates :duration, :status, :start_date, presence: true
-  enum status: { pending, accepted, declined }
+  enum status: { pending: 0, accepted: 1, declined: 2 }
 end
