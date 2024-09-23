@@ -1,0 +1,6 @@
+<h1>Treasures of the Seven Kingdoms</h1>
+<ul>
+  <% @goods.each do |good| %>
+    <li><%= link_to good.name, good_path(good) %></li>
+  <% end %>
+</ul>
