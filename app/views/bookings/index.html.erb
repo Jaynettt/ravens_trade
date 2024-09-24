@@ -1,0 +1,17 @@
+<h1>My bookings</h1>
+<br>
+  <ul>
+    <% @my_booking.each do |booking| %>
+      <li><%= booking.good %></li>
+    <% end %>
+<br>
+  </ul>
+
+
+<h1> My requested bookings</h1>
+  <ul>
+    <% @my_goods.each do |good| %>
+      <!--<li><%#= link_to good.name, good_path(good)%></li>-->
+      <li> <%= good.bookings %></li>
+    <% end %>
+  </ul>
