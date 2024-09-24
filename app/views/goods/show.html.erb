@@ -1,6 +1,11 @@
-<div class="container">
-<h1><%= @good.name %></h1>
-<h2><%=@good.description%></h2>
-<h3>Price: <%=@good.price%> silver stags</h3>
+<div class="container mt-3">
+<h1><i><%= @good.name %></i></h1>
+<br>
+<h3><%=@good.description%></h3>
+<br>
+<h4>Price: <strong><%=@good.price%></strong> silver stags</h4>
 </div>
-
+<br>
+<div class="container">
+<%= link_to "Back to Relics!", goods_path %>
+</div>

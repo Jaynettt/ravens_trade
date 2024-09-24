@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Your listed Relics:</h1>
+  <% @my_goods.each do |good| %>
+ <br>
+
+  <div class="container mt-4 card">
+    <h1><%= good.name %></h1>
+    <br>
+    <h3><%= good.description %></h3>
+    <br>
+    <h4> Price: <strong><%= good.price %></strong> Silver Stags</h4>
+    <br>
+  </div>
+    <% end %>
+</div>
