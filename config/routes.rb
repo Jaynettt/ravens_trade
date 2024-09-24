@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "goods#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  resources :goods
-  # Defines the root path route ("/")
+  resources :goods do
+    resources :bookings, only: [:new, :create]
+  end    # Defines the root path route ("/")
   # root "posts#index"
 
   get "bookings", to: "bookings#index"
+
+  resources :bookings, only: [:edit, :update, :show, :destroy]
 end

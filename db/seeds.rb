@@ -85,9 +85,9 @@ puts "🍇 #{wine.name} is now available for connoisseurs, offered by #{tyrion.f
 puts "\n📅 Seeding Bookings..."
 
 Booking.create!(
-  duration: 7,
   total_price: 35000,
   start_date: Date.today,
+  end_date: Date.today + 2,
   good_id: iron_throne.id,
   user_id: jon.id,
   status: 1,
@@ -97,9 +97,9 @@ Booking.create!(
 puts "🤴 #{jon.first_name} has booked the #{iron_throne.name} for 7 days. Total Price: 35,000 Gold."
 
 Booking.create!(
-  duration: 3,
   total_price: 30000,
   start_date: Date.today,
+  end_date: Date.today + 3,
   good_id: dragons.id,
   user_id: tyrion.id,
   status: 0,
@@ -109,9 +109,9 @@ Booking.create!(
 puts "🐲 #{tyrion.first_name} has a pending booking for #{dragons.name} for 3 days. Total Price: 30,000 Gold."
 
 Booking.create!(
-  duration: 1,
   total_price: 5000,
   start_date: Date.today,
+  end_date: Date.today + 5,
   good_id: valyrian_sword.id,
   user_id: daenerys.id,
   status: 1,
@@ -121,9 +121,9 @@ Booking.create!(
 puts "⚔️ #{daenerys.first_name} has confirmed her booking of the #{valyrian_sword.name} for 1 day. Total Price: 5,000 Gold."
 
 Booking.create!(
-  duration: 5,
   total_price: 1000,
   start_date: Date.today,
+  end_date: Date.today + 6,
   good_id: wine.id,
   user_id: cersei.id,
   status: 0,
