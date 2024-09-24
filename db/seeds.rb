@@ -9,7 +9,9 @@
 #   end
 # db/seeds.rb
 # db/seeds.rb
-
+Booking.destroy_all
+Good.destroy_all
+User.destroy_all
 puts "🌟 Seeding Game of Thrones Users..."
 
 jon = User.create!(
