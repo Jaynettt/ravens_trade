@@ -3,13 +3,20 @@
   <% @my_goods.each do |good| %>
  <br>
 
-  <div class="container mt-4 card">
-    <h1><%= good.name %></h1>
-    <br>
-    <h3><%= good.description %></h3>
-    <br>
-    <h4> Price: <strong><%= good.price %></strong> Silver Stags</h4>
-    <br>
-  </div>
+    <div class="container">
+      <div class="card" style="width: 27rem;" >
+        <div class="container card-img-top py-4 ms-1 "  >
+          <%= cl_image_tag good.photo.key, height: 300, width: 400, crop: :fill, class:"rounded-top" %>
+        </div>
+          <div class="card-body">
+            <h1 class="card-title"><%= good.name %></h1>
+            <br>
+            <h3 class="card-text"><%= good.description %></h3>
+            <br>
+            <h4> Price: <strong><%= good.price %></strong> Silver Stags</h4>
+          </div>
+        <br>
+      </div>
+    </div>
     <% end %>
 </div>

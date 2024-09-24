@@ -1,6 +1,7 @@
 <div class="container">
 <%= simple_form_for(@good) do |f| %>
   <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.input :description%>
   <%= f.input :price %>
   <%= f.submit value:"Create Relic" %>

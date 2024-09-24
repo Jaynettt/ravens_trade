@@ -9,10 +9,21 @@
 #   end
 # db/seeds.rb
 # db/seeds.rb
+# db/seeds.rb
+
+# db/seeds.rb
+require 'open-uri'
+
 Booking.destroy_all
 Good.destroy_all
 User.destroy_all
 puts "🌟 Seeding Game of Thrones Users..."
+
+# User photos (using URLs)
+jon_photo_url = "https://i0.wp.com/thedailycougar.com/wp-content/uploads/2019/04/jon-snow.jpg?w=1000&ssl=1"
+daenerys_photo_url = "https://upload.wikimedia.org/wikipedia/en/0/0d/Daenerys_Targaryen_with_Dragon-Emilia_Clarke.jpg?20171223061132"
+tyrion_photo_url = "https://external-preview.redd.it/_E5YaUD35cpOvvZx6hCH-HEFlKVklUjsGEIn29ozBR4.jpg?width=1080&crop=smart&auto=webp&s=33867c1872e423f18c382a6f82b2b6e2a26cee69"
+cersei_photo_url = "https://miro.medium.com/v2/resize:fit:3736/format:webp/1*x0zpYvF2InN0CWMx3ZFqHw.jpeg"
 
 jon = User.create!(
   first_name: "Jon",
@@ -21,7 +32,8 @@ jon = User.create!(
   email: "jon.snow@got.com",
   password: "kinginthenorth"
 )
-puts "🦊 #{jon.first_name} #{jon.last_name} from House #{jon.house_name} has been created."
+jon.photo.attach(io: URI.open(jon_photo_url), filename: 'jon_snow.jpg')
+puts "🦊 #{jon.first_name} #{jon.last_name} from House #{jon.house_name} has been created with an image."
 
 daenerys = User.create!(
   first_name: "Daenerys",
@@ -30,7 +42,8 @@ daenerys = User.create!(
   email: "daenerys@got.com",
   password: "dragonsarecool"
 )
-puts "🐉 #{daenerys.first_name} #{daenerys.last_name} from House #{daenerys.house_name} has been created."
+daenerys.photo.attach(io: URI.open(daenerys_photo_url), filename: 'daenerys_targaryen.jpg')
+puts "🐉 #{daenerys.first_name} #{daenerys.last_name} from House #{daenerys.house_name} has been created with an image."
 
 tyrion = User.create!(
   first_name: "Tyrion",
@@ -39,7 +52,8 @@ tyrion = User.create!(
   email: "tyrion@got.com",
   password: "wineandwisdom"
 )
-puts "🍷 #{tyrion.first_name} #{tyrion.last_name} from House #{tyrion.house_name} has been created."
+tyrion.photo.attach(io: URI.open(tyrion_photo_url), filename: 'tyrion_lannister.jpg')
+puts "🍷 #{tyrion.first_name} #{tyrion.last_name} from House #{tyrion.house_name} has been created with an image."
 
 cersei = User.create!(
   first_name: "Cersei",
@@ -48,9 +62,16 @@ cersei = User.create!(
   email: "cersei@got.com",
   password: "queenofwesteros"
 )
-puts "👑 #{cersei.first_name} #{cersei.last_name} from House #{cersei.house_name} has been created."
+cersei.photo.attach(io: URI.open(cersei_photo_url), filename: 'cersei_lannister.jpg')
+puts "👑 #{cersei.first_name} #{cersei.last_name} from House #{cersei.house_name} has been created with an image."
 
 puts "\n🛒 Seeding Game of Thrones Goods..."
+
+# Good photos (using URLs)
+valyrian_sword_photo_url = "https://pics.knifecenter.com/knifecenter/valyrian/images/VS0106_a1.jpg"
+dragons_photo_url = "https://media.wired.com/photos/5ada3a2c1e66870735eada27/master/w_1920,c_limit/DragonPasswordFINAL.jpg"
+iron_throne_photo_url = "https://media.wired.com/photos/5a5c7990ae3b7433d348beb1/master/w_1600%2Cc_limit/throne-big.jpg"
+wine_photo_url = "https://s.yimg.com/ny/api/res/1.2/GJtxe.S6JxVgBYi_bCpTOQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk0MDtoPTU0NQ--/https://media.zenfs.com/en-US/homerun/inquisitr_395/3073d3d88a5263d30044a82c12c2ca36"
 
 valyrian_sword = Good.create!(
   name: "Valyrian Steel Sword",
@@ -58,6 +79,7 @@ valyrian_sword = Good.create!(
   price: 5000,
   user_id: jon.id
 )
+valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'valyrian_sword.jpg')
 puts "⚔️ #{valyrian_sword.name} is now available in the marketplace, offered by #{jon.first_name}."
 
 dragons = Good.create!(
@@ -66,6 +88,7 @@ dragons = Good.create!(
   price: 10000,
   user_id: daenerys.id
 )
+dragons.photo.attach(io: URI.open(dragons_photo_url), filename: 'dragons.jpg')
 puts "🔥 #{dragons.name} are now available, offered by #{daenerys.first_name}."
 
 iron_throne = Good.create!(
@@ -74,6 +97,7 @@ iron_throne = Good.create!(
   price: 20000,
   user_id: cersei.id
 )
+iron_throne.photo.attach(io: URI.open(iron_throne_photo_url), filename: 'iron_throne.jpg')
 puts "🪑 The #{iron_throne.name} is now available for booking, offered by #{cersei.first_name}."
 
 wine = Good.create!(
@@ -82,6 +106,7 @@ wine = Good.create!(
   price: 200,
   user_id: tyrion.id
 )
+wine.photo.attach(io: URI.open(wine_photo_url), filename: 'dornish_red_wine.jpg')
 puts "🍇 #{wine.name} is now available for connoisseurs, offered by #{tyrion.first_name}."
 
 puts "\n📅 Seeding Bookings..."
@@ -96,7 +121,7 @@ Booking.create!(
   created_at: Time.now,
   updated_at: Time.now
 )
-puts "🤴 #{jon.first_name} has booked the #{iron_throne.name} for 7 days. Total Price: 35,000 Gold."
+puts "🤴 #{jon.first_name} has booked the #{iron_throne.name} for 2 days. Total Price: 35,000 Gold."
 
 Booking.create!(
   total_price: 30000,
@@ -108,30 +133,6 @@ Booking.create!(
   created_at: Time.now,
   updated_at: Time.now
 )
-puts "🐲 #{tyrion.first_name} has a pending booking for #{dragons.name} for 3 days. Total Price: 30,000 Gold."
-
-Booking.create!(
-  total_price: 5000,
-  start_date: Date.today,
-  end_date: Date.today + 5,
-  good_id: valyrian_sword.id,
-  user_id: daenerys.id,
-  status: 1,
-  created_at: Time.now,
-  updated_at: Time.now
-)
-puts "⚔️ #{daenerys.first_name} has confirmed her booking of the #{valyrian_sword.name} for 1 day. Total Price: 5,000 Gold."
-
-Booking.create!(
-  total_price: 1000,
-  start_date: Date.today,
-  end_date: Date.today + 6,
-  good_id: wine.id,
-  user_id: cersei.id,
-  status: 0,
-  created_at: Time.now,
-  updated_at: Time.now
-)
-puts "🍷 #{cersei.first_name} has a pending booking for #{wine.name} for 5 days. Total Price: 1,000 Gold."
+puts "🐲 #{tyrion.first_name} has a pending booking for #{dragons.name} for 3 days. Total Price: #{Booking.last.total_price}"
 
 puts "\n🌟 Seeding completed successfully!"
