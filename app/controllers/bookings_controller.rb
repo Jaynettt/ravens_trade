@@ -1,12 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[destroy edit update show]
 
-
   def index
     @my_bookings = Booking.where(user_id: current_user.id)
     @my_goods = current_user.goods
   end
-
 
   def show
     @good = @booking.good
@@ -39,7 +37,6 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to goods_path, status: :see_other
   end
-
 
   private
 
