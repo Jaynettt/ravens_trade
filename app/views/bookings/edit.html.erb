@@ -1,0 +1,8 @@
+<h1>New booking</h1>
+
+<%= simple_form_for [@good, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <p> Price per day is <%= @good.price %> </p>
+  <%= f.submit "Submit booking", class: "btn btn-primary" %>
+<% end %>
