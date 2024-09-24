@@ -15,6 +15,11 @@
 </div>
 <br>
 <div class="container">
+
+<%= link_to "Back to Relics!", goods_path %>
+
+
+
   <% if @good.user == current_user %>
 
   <% else%>
@@ -22,6 +27,7 @@
       <%= link_to "Book Relic!", new_good_booking_path(@good) %>
       </div>
   <% end %>
+
 </div>
 <%= link_to "Back to Relics!", goods_path %>
 

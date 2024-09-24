@@ -1,0 +1,18 @@
+<div class="container mt-3">
+  <h2> <%= @booking.good.name %></h2>
+
+  <br>
+  <p> From : <%= @booking.start_date %></p>
+  <p> To : <%= @booking.end_date %></p>
+  <p> Duration of booking (days) : <%= @booking.duration %></p>
+  <p> Total price : <%= @booking.total_price  %> Silver Stags </p>
+  <p> Booking status : <%= @booking.status %></p>
+  <br>
+
+  <%= link_to "Back to relics", goods_path %>
+
+  <%= link_to "Delete", booking_path(@booking) ,
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+
+</div>

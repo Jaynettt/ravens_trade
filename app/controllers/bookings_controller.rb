@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[destroy edit update show]
+  before_action :set_booking, only: %i[destroy edit update show accept decline]
 
   def index
     @my_bookings = Booking.where(user_id: current_user.id)
@@ -29,14 +29,26 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.update(bookings_params)
+    @booking.update(bookings_params)
     redirect_to booking_path(@booking)
   end
 
   def destroy
     @booking.destroy
-    redirect_to goods_path, status: :see_other
+    redirect_to bookings_path, status: :see_other
   end
+
+
+  def accept
+    @booking.update(status: 1)
+    redirect_to booking_path(@booking)
+  end
+
+  def decline
+    @booking.update(status: 2)
+    redirect_to booking_path(@booking)
+  end
+
 
   private
 
