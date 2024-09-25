@@ -75,7 +75,7 @@ valyrian_sword = Good.create!(
   price: 5000,
   user_id: jon.id
   )
-  valyrian_sword_photo_url = "https://res.cloudinary.com/detmllb8u/image/upload/v1727191854/development/9206a9unmwouh92sit02v0170691.jpg"
+  valyrian_sword_photo_url = "https://images.unsplash.com/photo-1440711085503-89d8ec455791?q=80&w=1098&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
   # valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'valyrian_sword.jpg')
   puts "⚔️ #{valyrian_sword.name} is now available in the marketplace, offered by #{jon.first_name}."
@@ -86,8 +86,8 @@ valyrian_sword = Good.create!(
     price: 10000,
     user_id: daenerys.id
     )
-    dragons_photo_url = "https://res.cloudinary.com/detmllb8u/image/upload/v1727191857/development/089sphimv0ltgc9bhcjqzqtjvyjt.jpg"
-    dragons.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
+    dragons_photo_url = "https://images.unsplash.com/photo-1577493340887-b7bfff550145?q=80&w=940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    dragons.photo.attach(io: URI.open(dragons_photo_url), filename: 'dragon.png')
     puts "🔥 #{dragons.name} are now available, offered by #{daenerys.first_name}."
     
     iron_throne = Good.create!(
@@ -96,8 +96,8 @@ valyrian_sword = Good.create!(
       price: 20000,
       user_id: cersei.id
       )
-      iron_throne_photo_url = "https://res.cloudinary.com/detmllb8u/image/upload/v1727191859/development/sbmyuievwze0562bim5olsr8rg5j.jpg"
-      iron_throne.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
+      iron_throne_photo_url = "https://images.unsplash.com/photo-1695185844325-f4c0ee01b3d6?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      iron_throne.photo.attach(io: URI.open(iron_throne_photo_url), filename: 'iron.png')
       puts "🪑 The #{iron_throne.name} is now available for booking, offered by #{cersei.first_name}."
       
       wine = Good.create!(
@@ -106,8 +106,8 @@ valyrian_sword = Good.create!(
         price: 200,
         user_id: tyrion.id
         )
-        wine_photo_url = "https://res.cloudinary.com/detmllb8u/image/upload/v1727191863/development/5ct1e2rwlckoksc9jckcblkgvsf5.jpg"
-        wine.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
+        wine_photo_url = "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2luZXxlbnwwfHwwfHx8Mg%3D%3D"
+        wine.photo.attach(io: URI.open(wine_photo_url), filename: 'wine.png')
 puts "🍇 #{wine.name} is now available for connoisseurs, offered by #{tyrion.first_name}."
 
 puts "\n📅 Seeding Bookings..."
