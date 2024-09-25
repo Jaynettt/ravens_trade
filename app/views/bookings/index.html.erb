@@ -1,27 +1,30 @@
 <div class="container mt-3">
-  <h1>My bookings</h1>
-  <br>
-    <ol>
-      <% @my_bookings.each do |booking| %>
-        <li> <%= link_to booking.good.name, booking_path(booking) %>
-        <p> Status : <%= booking.status %> </p>
-        </li>
-      <% end %>
-  <br>
-    </ol>
 
-
-  <h1> My requested bookings</h1>
-      <% @my_goods.each do |good| %>
+    <h1>My bookings</h1>
+    <br>
+    <div class = "bookings container">
       <ol>
-      <p><%= good.name %> </p>
-      <p> <% good.bookings.each do |booking| %> </p>
+        <% @my_bookings.each do |booking| %>
+          <li> <%= link_to booking.good.name, booking_path(booking) %>
+          <p> Status : <%= booking.status %> </p>
+          </li>
+        <% end %>
+    </div>
+    <br>
+      </ol>
+
+
+    <h1> My requested bookings</h1>
+    <% @my_goods.each do |good| %>
+      <ol>
+      <h3><%= good.name %> </h3>
+      <p> <% good.bookings.where(status:0).each do |booking| %> </p>
       <li><%= booking.user.first_name %> <%= booking.user.last_name %> </li>
       <p> From : <%= booking.start_date %> </p>
       <p> To : <%= booking.end_date %> </p>
       <%= link_to 'Accept', accept_booking_path(booking),data: {turbo_method: :patch} %>
       <%= link_to 'Decline', decline_booking_path(booking),data: {turbo_method: :patch} %>
-        <% end %>
+      <% end %>
       </ol>
     <% end %>
 </div>
