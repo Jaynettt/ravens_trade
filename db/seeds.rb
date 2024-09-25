@@ -68,9 +68,6 @@ puts "👑 #{cersei.first_name} #{cersei.last_name} from House #{cersei.house_na
 puts "\n🛒 Seeding Game of Thrones Goods..."
 
 # Good photos (using URLs)
-# dragons_photo_url = "https://media.wired.com/photos/5ada3a2c1e66870735eada27/master/w_1920,c_limit/DragonPasswordFINAL.jpg"
-# iron_throne_photo_url = "https://media.wired.com/photos/5a5c7990ae3b7433d348beb1/master/w_1600%2Cc_limit/throne-big.jpg"
-# wine_photo_url = "https://s.yimg.com/ny/api/res/1.2/GJtxe.S6JxVgBYi_bCpTOQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk0MDtoPTU0NQ--/https://media.zenfs.com/en-US/homerun/inquisitr_395/3073d3d88a5263d30044a82c12c2ca36"
 
 valyrian_sword = Good.create!(
   name: "Valyrian Steel Sword",
@@ -78,36 +75,39 @@ valyrian_sword = Good.create!(
   price: 5000,
   user_id: jon.id
   )
-  valyrian_sword_photo_url = "https://media.wired.com/photos/5ada3a2c1e66870735eada27/master/w_1920,c_limit/DragonPasswordFINAL.jpg"
+  valyrian_sword_photo_url = "https://res.cloudinary.com/detmllb8u/image/upload/v1727191854/development/9206a9unmwouh92sit02v0170691.jpg"
   valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
-# valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'valyrian_sword.jpg')
-puts "⚔️ #{valyrian_sword.name} is now available in the marketplace, offered by #{jon.first_name}."
-
-dragons = Good.create!(
-  name: "Dragons",
-  description: "A trio of fearsome dragons: Drogon, Rhaegal, and Viserion.",
-  price: 10000,
-  user_id: daenerys.id
-)
-dragons.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
-puts "🔥 #{dragons.name} are now available, offered by #{daenerys.first_name}."
-
-iron_throne = Good.create!(
-  name: "Iron Throne",
-  description: "The throne made of swords, for those who wish to rule Westeros.",
-  price: 20000,
-  user_id: cersei.id
-)
-iron_throne.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
-puts "🪑 The #{iron_throne.name} is now available for booking, offered by #{cersei.first_name}."
-
-wine = Good.create!(
-  name: "Dornish Red Wine",
-  description: "A fine vintage wine from Dorne, perfect for all occasions.",
-  price: 200,
-  user_id: tyrion.id
-)
-wine.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
+  # valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'valyrian_sword.jpg')
+  puts "⚔️ #{valyrian_sword.name} is now available in the marketplace, offered by #{jon.first_name}."
+  
+  dragons = Good.create!(
+    name: "Dragons",
+    description: "A trio of fearsome dragons: Drogon, Rhaegal, and Viserion.",
+    price: 10000,
+    user_id: daenerys.id
+    )
+    dragons_photo_url = "https://res.cloudinary.com/detmllb8u/image/upload/v1727191857/development/089sphimv0ltgc9bhcjqzqtjvyjt.jpg"
+    dragons.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
+    puts "🔥 #{dragons.name} are now available, offered by #{daenerys.first_name}."
+    
+    iron_throne = Good.create!(
+      name: "Iron Throne",
+      description: "The throne made of swords, for those who wish to rule Westeros.",
+      price: 20000,
+      user_id: cersei.id
+      )
+      iron_throne_photo_url = "https://res.cloudinary.com/detmllb8u/image/upload/v1727191859/development/sbmyuievwze0562bim5olsr8rg5j.jpg"
+      iron_throne.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
+      puts "🪑 The #{iron_throne.name} is now available for booking, offered by #{cersei.first_name}."
+      
+      wine = Good.create!(
+        name: "Dornish Red Wine",
+        description: "A fine vintage wine from Dorne, perfect for all occasions.",
+        price: 200,
+        user_id: tyrion.id
+        )
+        wine_photo_url = "https://res.cloudinary.com/detmllb8u/image/upload/v1727191863/development/5ct1e2rwlckoksc9jckcblkgvsf5.jpg"
+        wine.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
 puts "🍇 #{wine.name} is now available for connoisseurs, offered by #{tyrion.first_name}."
 
 puts "\n📅 Seeding Bookings..."
