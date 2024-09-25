@@ -68,18 +68,19 @@ puts "👑 #{cersei.first_name} #{cersei.last_name} from House #{cersei.house_na
 puts "\n🛒 Seeding Game of Thrones Goods..."
 
 # Good photos (using URLs)
-valyrian_sword_photo_url = "https://pics.knifecenter.com/knifecenter/valyrian/images/VS0106_a1.jpg"
-dragons_photo_url = "https://media.wired.com/photos/5ada3a2c1e66870735eada27/master/w_1920,c_limit/DragonPasswordFINAL.jpg"
-iron_throne_photo_url = "https://media.wired.com/photos/5a5c7990ae3b7433d348beb1/master/w_1600%2Cc_limit/throne-big.jpg"
-wine_photo_url = "https://s.yimg.com/ny/api/res/1.2/GJtxe.S6JxVgBYi_bCpTOQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk0MDtoPTU0NQ--/https://media.zenfs.com/en-US/homerun/inquisitr_395/3073d3d88a5263d30044a82c12c2ca36"
+# dragons_photo_url = "https://media.wired.com/photos/5ada3a2c1e66870735eada27/master/w_1920,c_limit/DragonPasswordFINAL.jpg"
+# iron_throne_photo_url = "https://media.wired.com/photos/5a5c7990ae3b7433d348beb1/master/w_1600%2Cc_limit/throne-big.jpg"
+# wine_photo_url = "https://s.yimg.com/ny/api/res/1.2/GJtxe.S6JxVgBYi_bCpTOQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk0MDtoPTU0NQ--/https://media.zenfs.com/en-US/homerun/inquisitr_395/3073d3d88a5263d30044a82c12c2ca36"
 
 valyrian_sword = Good.create!(
   name: "Valyrian Steel Sword",
   description: "A sword made of Valyrian steel, sharp enough to slice through anything.",
   price: 5000,
   user_id: jon.id
-)
-valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'valyrian_sword.jpg')
+  )
+  valyrian_sword_photo_url = "https://media.wired.com/photos/5ada3a2c1e66870735eada27/master/w_1920,c_limit/DragonPasswordFINAL.jpg"
+  valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
+# valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'valyrian_sword.jpg')
 puts "⚔️ #{valyrian_sword.name} is now available in the marketplace, offered by #{jon.first_name}."
 
 dragons = Good.create!(
@@ -88,7 +89,7 @@ dragons = Good.create!(
   price: 10000,
   user_id: daenerys.id
 )
-dragons.photo.attach(io: URI.open(dragons_photo_url), filename: 'dragons.jpg')
+dragons.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
 puts "🔥 #{dragons.name} are now available, offered by #{daenerys.first_name}."
 
 iron_throne = Good.create!(
@@ -97,7 +98,7 @@ iron_throne = Good.create!(
   price: 20000,
   user_id: cersei.id
 )
-iron_throne.photo.attach(io: URI.open(iron_throne_photo_url), filename: 'iron_throne.jpg')
+iron_throne.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
 puts "🪑 The #{iron_throne.name} is now available for booking, offered by #{cersei.first_name}."
 
 wine = Good.create!(
@@ -106,7 +107,7 @@ wine = Good.create!(
   price: 200,
   user_id: tyrion.id
 )
-wine.photo.attach(io: URI.open(wine_photo_url), filename: 'dornish_red_wine.jpg')
+wine.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
 puts "🍇 #{wine.name} is now available for connoisseurs, offered by #{tyrion.first_name}."
 
 puts "\n📅 Seeding Bookings..."
