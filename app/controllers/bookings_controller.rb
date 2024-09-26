@@ -41,12 +41,12 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.update(status: 1)
-    redirect_to booking_path(@booking)
+    redirect_to dashboard_path
   end
 
   def decline
     @booking.update(status: 2)
-    redirect_to booking_path(@booking)
+    redirect_to dashboard_path
   end
 
 

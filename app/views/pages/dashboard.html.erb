@@ -1,22 +1,42 @@
 <div class="container">
-  <h1>Your listed Relics:</h1>
+  <h1>Your Listed Relics:</h1>
   <% @my_goods.each do |good| %>
- <br>
 
-    <div class="container">
-      <div class="card" style="width: 27rem;" >
-        <div class="container card-img-top py-4 ms-1 "  >
-          <%= cl_image_tag good.photo.key, height: 300, width: 400, crop: :fill, class:"rounded-top" %>
-        </div>
-          <div class="card-body">
-            <h1 class="card-title"><%= good.name %></h1>
-            <br>
-            <h3 class="card-text"><%= good.description %></h3>
-            <br>
-            <h4> Price: <strong><%= good.price %></strong> Silver Stags</h4>
+        <div class="card mt-3" style="width: 100%;">
+
+          <div class="container card-img-top py-4 ms-3 d-flex">
+            <%= cl_image_tag good.photo.key, height: 300, width: 400, crop: :fill, class: "m-3" %>
+            <div class="card-body">
+              <h2 class="card-title"><%= good.name %></h2>
+              <p class="card-text"><%= good.description %></p>
+              <p>Price: <strong><%= good.price %></strong> Silver Stags</p>
+             </div>
           </div>
-        <br>
-      </div>
-    </div>
-    <% end %>
+
+             <div>
+              <div class="container">
+            <h4 class= "text-center">Bookings</h4>
+            <ol class="ms-0">
+            <% good.bookings.each do |booking| %>
+              <li class="d-flex justify-content-around p-3">
+                <p> Dates: <%= booking.start_date %> - <%= booking.end_date %></p>
+                <% if booking.pending? %>
+                  <%= link_to 'Accept', accept_booking_path(booking),  class: 'btn btn-info' %>
+                  <%= link_to 'Decline', decline_booking_path(booking),  data: { confirm: 'Are you sure you want to decline this booking?' }, class: 'btn btn-info '%>
+                  <% else %>
+                  <p>Status: <%= booking.status %></p>
+                <% end %>
+              </li>
+                <hr>
+               <% end %>
+              </div>
+            <% if good.bookings.empty? %>
+              <p>No bookings made for this relic yet.</p>
+            <% end %>
+            </ol>
+          </div>
+        </div>
+    <!--  </div>
+    </div>-->
+  <% end %>
 </div>
