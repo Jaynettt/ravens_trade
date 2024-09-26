@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="card" style="width: 27rem;">
     <div class="container card-img-top py-4 ms-1">
       <%= cl_image_tag @good.photo.key, height: 300, width: 400, crop: :fill %>
@@ -15,17 +14,11 @@
 </div>
 <br>
 <div class="container">
-
-
-
-
-
   <% if @good.user == current_user %>
-
   <% else%>
     <div class="btn btn-success">
       <%= link_to "Book Relic!", new_good_booking_path(@good) %>
       </div>
   <% end %>
-
 </div>
+
