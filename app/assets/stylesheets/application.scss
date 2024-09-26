@@ -12,8 +12,17 @@
 @import "pages/index";
 @import "goods/index";
 @import "bookings/index";
+@import "goods/show";
 
 
 body {
-  background-color: #d3c39133
+  background-image: url("dragonbg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;;
+  h1 {
+    color: wheat;
+  }
+  p {
+    color: white
+  }
 }

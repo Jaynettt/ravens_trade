@@ -1,9 +1,9 @@
 
 .grid-container{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 10px;
-  row-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
 
   img {
     margin-bottom: 2rem;
@@ -11,3 +11,43 @@
     height: 80%;
   }
 }
+
+@font-face {
+  font-family: 'Game of Thrones';
+  src: url('GAMEOFTHRONES.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  // font-display: swap;
+}
+
+
+
+
+
+.card{
+  background-color: rgba(0, 0, 0, 0.686);
+  border-radius: 10px;
+  border: whitesmoke solid;
+  margin: 0 auto
+  a {
+    text-decoration: none;
+  }
+
+  
+  .image-card {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    bottom: 40%;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background
+    padding: 5px 10px;
+    font-size: 2rem;
+  }
+
+}
+
