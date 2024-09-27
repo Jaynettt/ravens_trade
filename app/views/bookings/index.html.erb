@@ -20,11 +20,11 @@
               <p><strong>Duration (days):</strong> <%= booking.duration %></p>
               <p><strong>Total price:</strong> <%= booking.total_price %> Silver Stags</p>
               <p><strong>Status:</strong>
-                <% if booking.status == 0 %>
+                <% if booking.pending?  %>
                   Pending
-                <% elsif booking.status == 1 %>
+                <% elsif booking.accepted? %>
                   Accepted
-                <% else %>
+                <% elsif booking.declined? %>
                   Declined
                 <% end %>
               </p>
