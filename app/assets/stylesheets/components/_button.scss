@@ -1,0 +1,8 @@
+.btn-wheat{
+  background-color: wheat;
+  color: black;
+  &:hover {
+    background-color: rgb(180, 3, 3);
+    color: rgb(237, 139, 40);
+  }
+}
