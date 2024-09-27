@@ -5,6 +5,7 @@
   }
 }
 
+
 .card {
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
@@ -13,5 +14,13 @@
 
   img {
     width: auto;
+
   }
+  .table {
+  color: wheat;
+  background-color: transparent;
+  th, tr, td {
+    background-color: transparent;
+    color: wheat;
+    }
 }

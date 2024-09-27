@@ -5,39 +5,56 @@
         <div class="card mt-3" style="width: 80%;">
 
           <div class="container card-img-top py-4 ms-3 d-flex">
-            <%= cl_image_tag good.photo.key, height: 300, width: 400, crop: :fill, class: "m-3" %>
-            <div class="card-body p-4">
+
+            <%= cl_image_tag good.photo.key, height: 300, crop: :fill, class: "m-3" %>
+            <div class="card-body">
+
               <h2 class="card-title"><%= good.name %></h2>
               <p class="card-text"><%= good.description %></p>
               <p>Price: <strong><%= good.price %></strong> Silver Stags</p>
              </div>
           </div>
 
-             <div>
+             <div class="item">
               <div class="container">
-
-            <ol class="ms-0">
-            <% if good.bookings.empty? %>
+                <% if good.bookings.empty? %>
               <p>No bookings made for this relic yet.</p>
               <% else %>
-            <li class="d-flex justify-content-around p-3">
-                <p> Dates</p>
-                 <p>Status</p>
-              </li>
-            <% end %>
-            <% good.bookings.each do |booking| %>
-              <li class="d-flex justify-content-around p-3">
-                <p> Dates: <%= booking.start_date %> - <%= booking.end_date %></p>
-                <% if booking.pending? %>
+              <table class="table">
+               <thead>
+                 <tr>
+                  <th scope="col">Client</th>
+                  <th scope="col">Dates</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+  <tbody>
+    <tr>
+    <% good.bookings.each do |booking| %>
+
+      
+      <td><%= booking.user.first_name %> <%= booking.user.last_name %></td>
+      <td><%= booking.start_date.strftime("%d %b %Y")%> - <%= booking.end_date.strftime("%d %b %Y")%></td>
+      <td> <% if booking.pending? %>
+       
+
                   <%= link_to 'Accept', accept_booking_path(booking),  class: 'btn btn-info' %>
                   <%= link_to 'Decline', decline_booking_path(booking),  data: { confirm: 'Are you sure you want to decline this booking?' }, class: 'btn btn-info '%>
                   <% else %>
 
-                  <p>Status: <%= booking.status %></p>
+                  <%= booking.status %>
                 <% end %>
-              </li>
-                <hr>
-               <% end %>
+                </td>
+    </tr>
+    <% end %>
+
+
+  </tbody>
+</table>
+                 <% end%>
+
+
+
               </div>
             </ol>
           </div>

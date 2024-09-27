@@ -19,7 +19,7 @@
 body {
   background-image: url("dragonbg.jpg");
   background-repeat: no-repeat;
-  background-size: cover;;
+ 
   h1 {
     color: wheat;
     text-shadow: 2px 2px black;
@@ -27,7 +27,7 @@ body {
   }
   .card-title{
     color:  wheat;
-  
+
   }
   p {
     color: wheat;
@@ -42,5 +42,10 @@ body {
   }
   h5{
     color: wheat;
+  }
+
+  label {
+    color: wheat;
+
   }
 }
