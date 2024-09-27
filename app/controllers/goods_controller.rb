@@ -5,6 +5,7 @@ class GoodsController < ApplicationController
 
   def show
     @good = Good.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
