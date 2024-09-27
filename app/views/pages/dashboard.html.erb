@@ -1,12 +1,14 @@
+  <h1 class="text-center mb-5"> Bookings For Your Listed Relics:</h1>
 <div class="container">
-  <h1> Bookings For Your Listed Relics:</h1>
   <% @my_goods.each do |good| %>
 
-        <div class="card mt-3" style="width: 100%;">
+        <div class="card mt-3" style="width: 80%;">
 
           <div class="container card-img-top py-4 ms-3 d-flex">
+
             <%= cl_image_tag good.photo.key, height: 300, crop: :fill, class: "m-3" %>
             <div class="card-body">
+
               <h2 class="card-title"><%= good.name %></h2>
               <p class="card-text"><%= good.description %></p>
               <p>Price: <strong><%= good.price %></strong> Silver Stags</p>
@@ -15,6 +17,9 @@
 
              <div class="item">
               <div class="container">
+                <% if good.bookings.empty? %>
+              <p>No bookings made for this relic yet.</p>
+              <% else %>
               <table class="table">
                <thead>
                  <tr>
@@ -27,9 +32,12 @@
     <tr>
     <% good.bookings.each do |booking| %>
 
+      
       <td><%= booking.user.first_name %> <%= booking.user.last_name %></td>
       <td><%= booking.start_date.strftime("%d %b %Y")%> - <%= booking.end_date.strftime("%d %b %Y")%></td>
       <td> <% if booking.pending? %>
+       
+
                   <%= link_to 'Accept', accept_booking_path(booking),  class: 'btn btn-info' %>
                   <%= link_to 'Decline', decline_booking_path(booking),  data: { confirm: 'Are you sure you want to decline this booking?' }, class: 'btn btn-info '%>
                   <% else %>
@@ -43,13 +51,11 @@
 
   </tbody>
 </table>
+                 <% end%>
 
 
 
               </div>
-            <% if good.bookings.empty? %>
-              <p>No bookings made for this relic yet.</p>
-            <% end %>
             </ol>
           </div>
         </div>

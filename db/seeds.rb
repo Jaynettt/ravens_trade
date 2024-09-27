@@ -20,10 +20,10 @@ User.destroy_all
 puts "🌟 Seeding Game of Thrones Users..."
 
 # User photos (using URLs)
-jon_photo_url = "https://i0.wp.com/thedailycougar.com/wp-content/uploads/2019/04/jon-snow.jpg?w=1000&ssl=1"
-daenerys_photo_url = "https://upload.wikimedia.org/wikipedia/en/0/0d/Daenerys_Targaryen_with_Dragon-Emilia_Clarke.jpg?20171223061132"
-tyrion_photo_url = "https://external-preview.redd.it/_E5YaUD35cpOvvZx6hCH-HEFlKVklUjsGEIn29ozBR4.jpg?width=1080&crop=smart&auto=webp&s=33867c1872e423f18c382a6f82b2b6e2a26cee69"
-cersei_photo_url = "https://miro.medium.com/v2/resize:fit:3736/format:webp/1*x0zpYvF2InN0CWMx3ZFqHw.jpeg"
+jon_photo_url = "https://cdn.dribbble.com/users/719060/screenshots/6588668/jon_4x.jpg?resize=1000x750&vertical=center"
+daenerys_photo_url = "https://cdn.dribbble.com/users/719060/screenshots/6550072/dany_4x.jpg?resize=1000x750&vertical=center"
+tyrion_photo_url = "https://cdn.dribbble.com/users/719060/screenshots/6521446/tyrion_4x.jpg?resize=1000x750&vertical=center"
+cersei_photo_url = "https://cdn.dribbble.com/users/719060/screenshots/6528417/cersei_4x.jpg?resize=1000x750&vertical=center"
 
 jon = User.create!(
   first_name: "Jon",
@@ -70,7 +70,7 @@ puts "\n🛒 Seeding Game of Thrones Goods..."
 # Good photos (using URLs)
 
 valyrian_sword = Good.create!(
-  name: "Valyrian Steel Sword",
+  name: "Valyrian Sword",
   description: "A sword made of Valyrian steel, sharp enough to slice through anything.",
   price: 5000,
   user_id: jon.id
@@ -101,7 +101,7 @@ valyrian_sword = Good.create!(
       puts "🪑 The #{iron_throne.name} is now available for booking, offered by #{cersei.first_name}."
       
       wine = Good.create!(
-        name: "Dornish Red Wine",
+        name: "Dornish Wine",
         description: "A fine vintage wine from Dorne, perfect for all occasions.",
         price: 200,
         user_id: tyrion.id

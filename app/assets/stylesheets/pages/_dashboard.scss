@@ -1,16 +1,26 @@
 .card-body{
+  flex-grow: 0;
   h2{
     color:wheat
   }
 }
 
 
-.table {
+.card {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  // border-color: rgba(245, 222, 179, 0.551);
+  margin: 0 auto;
+
+  img {
+    width: auto;
+
+  }
+  .table {
   color: wheat;
   background-color: transparent;
   th, tr, td {
     background-color: transparent;
     color: wheat;
-
-  }
+    }
 }
