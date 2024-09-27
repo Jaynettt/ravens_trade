@@ -25,9 +25,8 @@
 
 
 .card{
-  background-color: rgba(0, 0, 0, 0.686);
-  border-radius: 10px;
-  border: whitesmoke solid;
+  background-color: rgba(250, 235, 215, 0);
+  
   margin: 0 auto
   a {
     text-decoration: none;
@@ -44,10 +43,29 @@
     bottom: 40%;
     left: 10px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background
+    background-color: rgba(0, 0, 0, 0.536); // Semi-transparent background
     padding: 5px 10px;
     font-size: 2rem;
   }
 
 }
 
+img{
+  width: 100%;
+  margin-left: -0.2rem;
+  border-radius: 4px;
+}
+
+.good-container{
+  height: 41rem;
+  width:20rem;
+  border: solid rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.573);
+  border-radius: 4px;
+  margin:2rem auto;
+}
+
+.show-container{
+  padding: 4rem;
+  margin-bottom: 4px;
+}
