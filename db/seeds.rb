@@ -86,7 +86,7 @@ valyrian_sword = Good.create!(
     price: 10000,
     user_id: daenerys.id
     )
-    dragons_photo_url = "https://images.unsplash.com/photo-1577493340887-b7bfff550145?q=80&w=940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    dragons_photo_url = "https://cdn.dribbble.com/userupload/2947869/file/original-d41e371aedaa3cd2bdde1f2d069f4d5c.png?resize=1200x900"
     dragons.photo.attach(io: URI.open(dragons_photo_url), filename: 'dragon.png')
     puts "🔥 #{dragons.name} are now available, offered by #{daenerys.first_name}."
     
