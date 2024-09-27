@@ -1,12 +1,12 @@
+  <h1 class="text-center mb-5"> Bookings For Your Listed Relics:</h1>
 <div class="container">
-  <h1> Bookings For Your Listed Relics:</h1>
   <% @my_goods.each do |good| %>
 
-        <div class="card mt-3" style="width: 100%;">
+        <div class="card mt-3" style="width: 80%;">
 
           <div class="container card-img-top py-4 ms-3 d-flex">
             <%= cl_image_tag good.photo.key, height: 300, width: 400, crop: :fill, class: "m-3" %>
-            <div class="card-body">
+            <div class="card-body p-4">
               <h2 class="card-title"><%= good.name %></h2>
               <p class="card-text"><%= good.description %></p>
               <p>Price: <strong><%= good.price %></strong> Silver Stags</p>
@@ -17,10 +17,14 @@
               <div class="container">
 
             <ol class="ms-0">
+            <% if good.bookings.empty? %>
+              <p>No bookings made for this relic yet.</p>
+              <% else %>
             <li class="d-flex justify-content-around p-3">
                 <p> Dates</p>
                  <p>Status</p>
               </li>
+            <% end %>
             <% good.bookings.each do |booking| %>
               <li class="d-flex justify-content-around p-3">
                 <p> Dates: <%= booking.start_date %> - <%= booking.end_date %></p>
@@ -35,9 +39,6 @@
                 <hr>
                <% end %>
               </div>
-            <% if good.bookings.empty? %>
-              <p>No bookings made for this relic yet.</p>
-            <% end %>
             </ol>
           </div>
         </div>

@@ -1,12 +1,12 @@
 <h1 class="m-5 text-center">Treasures of the Seven Kingdoms</h1>
-<div class="grid-container">
+<div class="grid-container mb-3">
     <% @goods.each do |good| %>
       <%= link_to good_path(good) do %>
         <div class="card" style="width: 23rem;">
           <div class="card-body">
-            <div  class="container card-img-top py-4 ms-1">
+            <div  class="container card-img-top py-4">
               <div class="image-card">
-                <%= cl_image_tag good.photo.key, height: 300, width: 400, crop: :fill %>
+                <%= cl_image_tag good.photo.key, crop: :fill %>
                 <div class="overlay-text"> 
                   <%=  good.name %>
                 </div>
