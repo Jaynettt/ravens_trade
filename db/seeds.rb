@@ -75,7 +75,7 @@ valyrian_sword = Good.create!(
   price: 5000,
   user_id: jon.id
   )
-  valyrian_sword_photo_url = "https://images.unsplash.com/photo-1440711085503-89d8ec455791?q=80&w=1098&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  valyrian_sword_photo_url = "https://cdn.dribbble.com/userupload/9893611/file/original-d4f69ae46a28161152cfb7b417d69117.jpg?resize=1024x768"
   valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'the_sword.png')
   # valyrian_sword.photo.attach(io: URI.open(valyrian_sword_photo_url), filename: 'valyrian_sword.jpg')
   puts "⚔️ #{valyrian_sword.name} is now available in the marketplace, offered by #{jon.first_name}."
@@ -96,7 +96,7 @@ valyrian_sword = Good.create!(
       price: 20000,
       user_id: cersei.id
       )
-      iron_throne_photo_url = "https://images.unsplash.com/photo-1695185844325-f4c0ee01b3d6?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      iron_throne_photo_url = "https://cdn.dribbble.com/users/1599080/screenshots/6334058/image.png?resize=800x600&vertical=center"
       iron_throne.photo.attach(io: URI.open(iron_throne_photo_url), filename: 'iron.png')
       puts "🪑 The #{iron_throne.name} is now available for booking, offered by #{cersei.first_name}."
       
@@ -106,7 +106,7 @@ valyrian_sword = Good.create!(
         price: 200,
         user_id: tyrion.id
         )
-        wine_photo_url = "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2luZXxlbnwwfHwwfHx8Mg%3D%3D"
+        wine_photo_url = "https://cdn.dribbble.com/userupload/9635013/file/original-91a2780d311722d1493c8c51a27af7a0.png?resize=1024x768"
         wine.photo.attach(io: URI.open(wine_photo_url), filename: 'wine.png')
 puts "🍇 #{wine.name} is now available for connoisseurs, offered by #{tyrion.first_name}."
 
