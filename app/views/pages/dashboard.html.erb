@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Your Listed Relics:</h1>
+  <h1> Bookings For Your Listed Relics:</h1>
   <% @my_goods.each do |good| %>
 
         <div class="card mt-3" style="width: 100%;">
@@ -15,8 +15,12 @@
 
              <div>
               <div class="container">
-            <h4 class= "text-center">Bookings</h4>
+
             <ol class="ms-0">
+            <li class="d-flex justify-content-around p-3">
+                <p> Dates</p>
+                 <p>Status</p>
+              </li>
             <% good.bookings.each do |booking| %>
               <li class="d-flex justify-content-around p-3">
                 <p> Dates: <%= booking.start_date %> - <%= booking.end_date %></p>
@@ -24,6 +28,7 @@
                   <%= link_to 'Accept', accept_booking_path(booking),  class: 'btn btn-info' %>
                   <%= link_to 'Decline', decline_booking_path(booking),  data: { confirm: 'Are you sure you want to decline this booking?' }, class: 'btn btn-info '%>
                   <% else %>
+
                   <p>Status: <%= booking.status %></p>
                 <% end %>
               </li>
