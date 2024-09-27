@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.total_price = @booking.calculate_total_price
     @booking.save
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
   end
 
   def edit
