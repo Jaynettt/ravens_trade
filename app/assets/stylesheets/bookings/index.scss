@@ -3,13 +3,33 @@
 .bookings{
   a {
     text-decoration: none;
-
   }
+  width: 70%;
+  margin: 0 auto;
   li {
     background-color: #00000087
   }
   h4{
     color:wheat
   }
+  .list-group{
+    height: 60rem;
+  }
+  .item{
+    height: 50px;
+  }
+  .reservation img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    padding: 1rem;
+  }
+}
 
+.got{
+  padding-top: 22px;
+}
+h1{
+  text-align: center;
 }

@@ -13,15 +13,18 @@
   </div>
   <% if @good.user == current_user %>
   <% else%>
-    
+
         <div class="show-container ">
           <h4>New booking</h4>
-
           <%= simple_form_for [@good, @booking] do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
+            <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+            <%= f.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
             <p> Price per day is <%= @good.price %> </p>
-            <%= f.submit "Submit booking", class: "btn btn-primary" %>
+            <%= f.submit "Submit booking", class: "btn btn-wheat" %>
           <% end %>
     <div class="listedby d-flex justify-content-around p-5 " >
       <h3>Listed By:</h3>
@@ -37,4 +40,3 @@
 
 <div class="container">
 </div>
-

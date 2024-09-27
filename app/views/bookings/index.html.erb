@@ -1,20 +1,22 @@
 <div class="container mt-5">
   <!-- Section 1: Your Bookings List -->
-  <h1 class="mb-4">My Relic Reservations</h1>
+  <h1 class="All-bookings mb-4">My Relic Reservations</h1>
   <div class="bookings container">
     <ol class="list-group">
       <% @my_bookings.each do |booking| %>
         <li class="list-group-item mb-3">
           <div class="d-flex">
             <!-- Display the image of the booked item -->
-            <div class="me-3">
-              <%= cl_image_tag booking.good.photo.key, height: 150, width: 200, crop: :fill, class: "rounded" %>
+            <div class="reservation me-3">
+              <%= cl_image_tag booking.good.photo.key, crop: :fill %>
             </div>
             <!-- Display booking details -->
-            <div>
+            <div class="got">
               <h4><%= booking.good.name %></h4>
-              <p><strong>From:</strong> <%= booking.start_date %></p>
-              <p><strong>To:</strong> <%= booking.end_date %></p>
+              <br>
+              <p><strong><%= booking.user.first_name%> <%= booking.user.last_name%><strong></p>
+              <p><strong>Date:</strong> <%= booking.start_date.strftime("%d %b %Y") %> -
+              </strong> <%= booking.end_date.strftime("%d %b %Y") %></p>
               <p><strong>Duration (days):</strong> <%= booking.duration %></p>
               <p><strong>Total price:</strong> <%= booking.total_price %> Silver Stags</p>
               <p><strong>Status:</strong>
