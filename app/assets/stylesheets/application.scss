@@ -19,7 +19,7 @@
 body {
   background-image: url("dragonbg.jpg");
   background-repeat: no-repeat;
- 
+
   h1 {
     color: wheat;
     text-shadow: 2px 2px black;
@@ -48,4 +48,14 @@ body {
     color: wheat;
 
   }
+
+  .scrollable {
+    height: calc(100vh - 95px);
+    overflow-y: scroll;
+    padding-bottom: 50px;
+  }
+
+  .scrollable::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
+}
 }
