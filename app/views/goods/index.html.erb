@@ -1,4 +1,11 @@
-<h1 class="m-5 text-center">Treasures of the Seven Kingdoms</h1>
+<div class="container">
+  <div class="welcome-container">
+    <h1 class="mt-4">Welcome to Raven's Trade </h1>
+    <%# <br> %>
+    <p><i>In the shadows of power, where whispers travel on the wings of ravens, fortunes are made!</i></p>
+    <br>
+  </div>
+<h2 class="m-5 text-center">Treasures of the Seven Kingdoms</h2>
 <div class="grid-container mb-3">
     <% @goods.each do |good| %>
       <%= link_to good_path(good) do %>
